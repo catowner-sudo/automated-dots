@@ -43,6 +43,8 @@ main() {
     mv kitty.conf ~/.config/kitty
     mv config.fish ~/.config/fish
 
+    sudo cp main.jpg /etc/main.jpg    
+
     finished
 }
 
