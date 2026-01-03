@@ -5,10 +5,10 @@ main() {
     sleep 2
     clear
 
-    sudo pacman -S --noconfirm python python-pip git curl openssh hyprland kitty waybar rofi sddm thunar nerd-fonts ttf-fira-code fastfetch
+    sudo pacman -S --noconfirm python python-pip git curl openssh hyprland kitty waybar rofi sddm thunar nerd-fonts ttf-fira-code fastfetch fish
     sudo systemctl enable sddm
 
-    mkdir -p ~/.config/waybar ~/.config/rofi
+    mkdir -p ~/.config/waybar ~/.config/rofi ~/.config/hypr ~/.config/fish
 
     git clone https://github.com/soaddevgit/WaybarTheme ~/.config/waybar
     git clone https://github.com/OuterFrog/outtheme-rofi-theme ~/.config/rofi
@@ -39,12 +39,16 @@ main() {
     
     chsh -s /usr/bin/fish
 
+    mv hyprland.conf ~/.config/hypr
+    mv kitty.conf ~/.config/kitty
+    mv config.fish ~/.config/fish
+
     finished
 }
 
 finished() {
-    echo "Finished!"
-    echo "NOTE: replace ~/.config/hypr/hyprland.conf with the hyprland config file from the repo, same as ~/.config/kitty/kitty.conf and ~/.config/fish/config.fish"
+    clear
+    echo "Finished, You may reboot at any time!"    
     exit
 }
 
